@@ -416,3 +416,17 @@ background-color: #c4dfd0;
     grid-template-columns: 1fr;
   }
 }
+/* Refined Bay EPC colour palette */
+
+.about-section,
+.process-section,
+.reviews-section {
+  background-color: #f7f8f5;
+}
+
+.pricing-card,
+.area-card,
+.contact-details,
+.contact-form-container {
+  background-color: #e5f0e9;
+}
