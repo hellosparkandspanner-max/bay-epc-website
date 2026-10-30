@@ -339,3 +339,80 @@ html {
 .reviews-section .hero-buttons {
   margin-top: 30px;
 }
+/* Contact section */
+.contact-section {
+  padding: 60px 20px;
+}
+
+.contact-section > .eyebrow,
+.contact-section > h2 {
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: clamp(28px, 4vw, 36px);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.contact-details,
+.contact-form-container {
+  background: #e5f0e9;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.contact-details h3,
+.contact-form-container h3 {
+  color: var(--brand-green);
+  margin-top: 0;
+}
+
+.contact-details strong {
+  display: block;
+  margin-top: 20px;
+}
+
+.contact-details a {
+  color: var(--brand-green);
+}
+
+.contact-form-container label {
+  display: block;
+  font-weight: bold;
+  margin: 15px 0 5px;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b9cec2;
+  border-radius: 6px;
+  font: inherit;
+  background: white;
+}
+
+.contact-form-container button {
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font: inherit;
+}
+
+.form-note {
+  font-size: 12px;
+  color: #52665e;
+}
+
+@media (max-width: 700px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
