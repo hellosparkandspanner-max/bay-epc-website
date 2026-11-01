@@ -1,45 +1,75 @@
-/* Bay EPC brand colours */
+/* =========================================================
+   BAY EPC | CLEAN STYLESHEET
+   All site colours are controlled here, in one place.
+   ========================================================= */
+
 :root {
   --brand-green: #064e42;
   --text-colour: #173f39;
-  --background: #ffffff;
+  --muted-text: #52665e;
+  --white: #ffffff;
+  --page-background: #ffffff;
+  --section-background: #f7f8f5; /* Warm off-white */
+  --card-background: #e5f0e9;    /* Pale eucalyptus */
+  --card-border: #d3e3d9;
+  --focus-colour: #477d6c;
+}
+
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: var(--background);
+  background: var(--page-background);
   color: var(--text-colour);
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
 
+h2,
+h3 {
+  color: var(--brand-green);
+}
+
+a {
+  color: var(--brand-green);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--focus-colour);
+  outline-offset: 3px;
+}
+
+/* Header and navigation */
 header {
-  background-color: var(--brand-green);
-  color: white;
-  text-align: center;
   padding: 50px 20px;
+  background: var(--brand-green);
+  color: var(--white);
+  text-align: center;
 }
 
 header h1 {
-  font-size: 42px;
   margin: 0;
+  color: var(--white);
+  font-size: 42px;
 }
 
 header p {
-  font-size: 20px;
   margin-bottom: 0;
+  font-size: 20px;
 }
 
-main {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 50px 20px;
-}
-
-h2 {
-  color: var(--brand-green);
-}
-/* Main navigation */
 nav {
   display: flex;
   justify-content: center;
@@ -50,11 +80,11 @@ nav {
 
 nav a,
 nav a:visited {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 15px;
   padding: 8px;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 nav a:hover,
@@ -62,44 +92,39 @@ nav a:focus-visible {
   text-decoration: underline;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Main content */
+main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
 }
 
-@media (max-width: 600px) {
-  nav {
-    gap: 8px;
-  }
-
-  nav a {
-    font-size: 13px;
-  }
-}
-/* Homepage hero section */
+/* Hero */
 .hero {
-  text-align: center;
   padding: 55px 20px 70px;
+  text-align: center;
 }
 
 .eyebrow {
-  color: #477d6c;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  color: var(--focus-colour);
   font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .hero h2 {
-  font-size: clamp(30px, 5vw, 48px);
-  line-height: 1.2;
   max-width: 800px;
   margin: 20px auto;
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.2;
 }
 
 .hero-description {
-  font-size: 18px;
   max-width: 680px;
   margin: 0 auto 30px;
+  font-size: 18px;
 }
 
 .hero-buttons {
@@ -113,31 +138,47 @@ html {
   display: inline-block;
   padding: 14px 25px;
   border-radius: 6px;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
-.button-primary {
+.button:hover {
+  opacity: 0.88;
+}
+
+.button-primary,
+.button-primary:visited {
   background: var(--brand-green);
-  color: white;
+  color: var(--white);
 }
 
-.button-secondary {
+.button-secondary,
+.button-secondary:visited {
   border: 2px solid var(--brand-green);
   color: var(--brand-green);
+  background: var(--white);
 }
 
 .hero-note {
   margin-top: 30px;
+  color: var(--focus-colour);
   font-size: 14px;
-  color: #477d6c;
 }
-/* About Bay EPC */
-.about-section {
-background-color: #c4dfd0;
-  padding: 60px 35px;
+
+/* Shared section surfaces: large areas stay light, not heavy green */
+.about-section,
+.process-section,
+.reviews-section {
+  background-color: var(--section-background);
+  border: 1px solid #edf0eb;
   border-radius: 12px;
   margin-bottom: 60px;
+}
+
+/* About Bay EPC */
+.about-section {
+  padding: 60px 35px;
 }
 
 .about-content {
@@ -162,13 +203,15 @@ background-color: #c4dfd0;
 }
 
 .about-highlights span {
-  background-color: white;
-  color: var(--brand-green);
   padding: 12px 18px;
+  background: var(--white);
+  border: 1px solid var(--card-border);
   border-radius: 6px;
-  font-weight: bold;
+  color: var(--brand-green);
   font-size: 14px;
+  font-weight: bold;
 }
+
 /* Services and pricing */
 .services-section {
   padding: 60px 20px;
@@ -176,8 +219,8 @@ background-color: #c4dfd0;
 }
 
 .services-section h2 {
-  font-size: clamp(28px, 4vw, 38px);
   margin-bottom: 15px;
+  font-size: clamp(28px, 4vw, 38px);
 }
 
 .section-intro {
@@ -195,10 +238,10 @@ background-color: #c4dfd0;
 }
 
 .pricing-card {
-  background: #c4dfd0;
   padding: 35px 25px;
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
-  border: 1px solid #dce8e1;
 }
 
 .pricing-card h3 {
@@ -207,10 +250,10 @@ background-color: #c4dfd0;
 }
 
 .price {
+  margin: 20px 0;
+  color: var(--brand-green);
   font-size: 42px;
   font-weight: bold;
-  color: var(--brand-green);
-  margin: 20px 0;
 }
 
 .pricing-card .button {
@@ -219,22 +262,14 @@ background-color: #c4dfd0;
 
 .pricing-note {
   margin-top: 30px;
+  color: var(--muted-text);
   font-size: 14px;
-  color: #52665e;
 }
 
-@media (max-width: 650px) {
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* EPC assessment process */
+/* What to expect */
 .process-section {
-  background: #c4dfd0;
   padding: 60px 25px;
-  border-radius: 12px;
   text-align: center;
-  margin-bottom: 60px;
 }
 
 .process-section h2 {
@@ -250,20 +285,21 @@ background-color: #c4dfd0;
 }
 
 .process-card {
-  background: white;
   padding: 28px;
+  background: var(--white);
+  border: 1px solid var(--card-border);
   border-radius: 10px;
 }
 
 .step-number {
-  color: #477d6c;
+  color: var(--focus-colour);
   font-size: 28px;
   font-weight: bold;
 }
 
 .process-card h3 {
-  color: var(--brand-green);
   margin-bottom: 10px;
+  color: var(--brand-green);
 }
 
 .register-link {
@@ -275,11 +311,6 @@ background-color: #c4dfd0;
   font-weight: bold;
 }
 
-@media (max-width: 650px) {
-  .process-grid {
-    grid-template-columns: 1fr;
-  }
-}
 /* Areas covered */
 .areas-section {
   padding: 60px 20px;
@@ -298,14 +329,15 @@ background-color: #c4dfd0;
 }
 
 .area-card {
-  background: #e5f0e9;
-  border-radius: 12px;
   padding: 30px 20px;
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
 }
 
 .area-card h3 {
-  color: var(--brand-green);
   margin-top: 0;
+  color: var(--brand-green);
 }
 
 .areas-note {
@@ -313,18 +345,10 @@ background-color: #c4dfd0;
   font-size: 15px;
 }
 
-@media (max-width: 650px) {
-  .areas-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* Google Reviews */
+/* Google reviews */
 .reviews-section {
-  background-color: #c4dfd0;
   padding: 60px 25px;
-  border-radius: 12px;
   text-align: center;
-  margin-bottom: 60px;
 }
 
 .reviews-section h2 {
@@ -339,7 +363,8 @@ background-color: #c4dfd0;
 .reviews-section .hero-buttons {
   margin-top: 30px;
 }
-/* Contact section */
+
+/* Contact */
 .contact-section {
   padding: 60px 20px;
 }
@@ -355,22 +380,24 @@ background-color: #c4dfd0;
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px;
   margin-top: 40px;
 }
 
 .contact-details,
 .contact-form-container {
-  background: #e5f0e9;
+  min-width: 0;
   padding: 30px;
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
 }
 
 .contact-details h3,
 .contact-form-container h3 {
-  color: var(--brand-green);
   margin-top: 0;
+  color: var(--brand-green);
 }
 
 .contact-details strong {
@@ -384,49 +411,88 @@ background-color: #c4dfd0;
 
 .contact-form-container label {
   display: block;
-  font-weight: bold;
   margin: 15px 0 5px;
+  font-weight: bold;
 }
 
 .contact-form-container input,
 .contact-form-container textarea {
-  box-sizing: border-box;
+  display: block;
   width: 100%;
   padding: 12px;
+  background: var(--white);
   border: 1px solid #b9cec2;
   border-radius: 6px;
   font: inherit;
-  background: white;
 }
 
 .contact-form-container button {
-  border: none;
-  cursor: pointer;
   margin-top: 20px;
+  border: 0;
+  cursor: pointer;
   font: inherit;
 }
 
 .form-note {
+  color: var(--muted-text);
   font-size: 12px;
-  color: #52665e;
 }
 
+/* Responsive layouts */
 @media (max-width: 700px) {
   .contact-grid {
     grid-template-columns: 1fr;
   }
 }
-/* Refined Bay EPC colour palette */
 
-.about-section,
-.process-section,
-.reviews-section {
-  background-color: #f7f8f5;
+@media (max-width: 650px) {
+  .pricing-grid,
+  .process-grid,
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.pricing-card,
-.area-card,
-.contact-details,
-.contact-form-container {
-  background-color: #e5f0e9;
+@media (max-width: 600px) {
+  main {
+    padding: 30px 14px;
+  }
+
+  header {
+    padding: 35px 18px;
+  }
+
+  header h1 {
+    font-size: 34px;
+  }
+
+  nav {
+    gap: 8px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .about-section,
+  .process-section,
+  .reviews-section {
+    padding: 35px 20px;
+  }
+
+  .services-section,
+  .areas-section,
+  .contact-section {
+    padding: 40px 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button {
+    transition: none;
+  }
 }
