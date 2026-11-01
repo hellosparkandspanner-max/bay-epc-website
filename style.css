@@ -496,3 +496,19 @@ main {
     transition: none;
   }
 }
+/* Bay EPC section and card backgrounds */
+
+.about-section,
+.process-section,
+.reviews-section {
+  background-color: #e2ede5;
+  border: 1px solid #cadccf;
+}
+
+.pricing-card,
+.area-card,
+.contact-details,
+.contact-form-container {
+  background-color: #d9e8dd;
+  border: 1px solid #cadccf;
+}
