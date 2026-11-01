@@ -147,13 +147,13 @@
         </div>
         <div class="enquiry-card">
           <h3>Send an enquiry</h3>
-          <p>Complete the details below and we'll prepare an email for you to send.</p>
-          <form id="enquiry-form">
+          <p>Complete the details below and Nicole will receive your enquiry directly.</p>
+          <form id="enquiry-form" action="https://formspree.io/f/mvkkwnjk" method="POST">
             <div class="field-row"><div><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div><div><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required></div></div>
             <div class="field-row"><div><label for="phone">Telephone (optional)</label><input id="phone" name="phone" autocomplete="tel"></div><div><label for="postcode">Property postcode (optional)</label><input id="postcode" name="postcode" autocomplete="postal-code"></div></div>
             <label for="message">How can Nicole help?</label><textarea id="message" name="message" rows="4" required></textarea>
-            <button class="button button-primary" type="submit">Prepare email <span aria-hidden="true">↗</span></button>
-            <p class="form-note">This opens your email application with your enquiry filled in. You'll need to press Send there. No details are saved by this website.</p>
+            <button class="button button-primary" type="submit">Send enquiry <span aria-hidden="true">↗</span></button>
+            <p class="form-note">Your details will be used to respond to your enquiry. Please do not include sensitive information.</p>
           </form>
         </div>
       </div>
@@ -163,17 +163,7 @@
   <footer class="site-footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Bay EPC · Domestic Energy Performance Certificates</span><a href="#home">Back to top ↑</a></div></footer>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('enquiry-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      if (!this.reportValidity()) return;
-      const fields = new FormData(this);
-      const lines = ['Hello Nicole,', '', String(fields.get('message') || ''), '',
-        'Name: ' + String(fields.get('name') || ''),
-        'Email: ' + String(fields.get('email') || ''),
-        'Telephone: ' + (String(fields.get('phone') || '') || 'Not provided'),
-        'Property postcode: ' + (String(fields.get('postcode') || '') || 'Not provided')];
-      window.location.href = 'mailto:bayepc8@gmail.com?subject=' + encodeURIComponent('Bay EPC website enquiry') + '&body=' + encodeURIComponent(lines.join('\n'));
-    });
+
   </script>
 </body>
 </html>
