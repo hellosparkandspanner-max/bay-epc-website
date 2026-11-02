@@ -32,3 +32,11 @@ a{color:var(--forest)}a:hover{text-decoration-thickness:2px}img{max-width:100%;d
   background-color: #d5e5da;
   border: 2px solid #7fa58e;
 }
+/* Keep Google buttons the same size */
+
+.button-row .button-light {
+  width: 240px;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
